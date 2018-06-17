@@ -7,6 +7,7 @@ nouns = json.load(open("nouns.json"))
 adjectives = json.load(open("adjectives.json"))
 verbs = json.load(open("verbs.json"))
 leetDefinitions = {'a':'4','A':'4','e':'3','E':'3','g':'6','G':'6','l':'1','L':'1','o':'0','O':'0','s':'5','S':'5','t':'7','T':'7'}
+specialCharacters = {'separators': [',', '.','-','-'], 'appender':['@','$','?','!']}
 
 def getNoun(isPlural = False, alliterateChar = ''):
     """Get a random noun, can either specify what the noun should begin with or if it is plural
@@ -15,7 +16,7 @@ def getNoun(isPlural = False, alliterateChar = ''):
     """
     randomNoun = getRandomWord(nouns, alliterateChar)
     if(isPlural):
-        return plural.plural(randomNoun)
+        return plural.plural_noun(randomNoun)
     else:
         return randomNoun
 
@@ -77,3 +78,25 @@ def getRandomNumber(length):
         randNumber = random.randint(0,9)
         numberString+=str(randNumber)
     return numberString
+
+def processSpecialCharacters(password,specialCharactersToAdd,numbersAppendedToEnd = False):
+    """Add a specified number of special characters to the current password
+    password - list containing the current password
+    specialCharactersToAdd - number of special characters to insert into the password
+    numbersAppendedToEnd - boolean stating whether numbers could have been added to the end of the password, 
+                           used for creating more natural setences when inserting appenders
+    """
+    separatorIndex = 1
+    if(specialCharactersToAdd == 1):
+        randomKey = random.choice(list(specialCharacters.keys()))
+        if(randomKey == 'separators'):
+            password.insert(separatorIndex, random.choice(specialCharacters[randomKey]))
+        elif(numbersAppendedToEnd):
+            if(password[-1].isdigit()):
+                password.insert(len(password) - 1, random.choice(specialCharacters[randomKey]))
+        else:
+            password.append(random.choice(specialCharacters[randomKey]))
+    else:
+        pass
+        #TODO: Implement extended special character behavior
+    return password

@@ -3,16 +3,12 @@ import words
 
 os.chdir(os.getcwd())
 
-nouns = json.load(open("nouns.json"))
-adjectives = json.load(open("adjectives.json"))
-verbs = json.load(open("verbs.json"))
-
 passwordPatterns = [['adj','alliterate-noun','verb','pluralnoun']]
 
 def getRandomPass():
-    return generatePass(random.choice(passwordPatterns), 1, True)
+    return generatePass(random.choice(passwordPatterns), replaceWithNums = 1, appendAllNumbersToEnd = False, specialCharactersToAdd=1)
 
-def generatePass(passwordPattern, replaceWithNums = 0, appendNumbersToEnd = False):
+def generatePass(passwordPattern, replaceWithNums = 0, appendAllNumbersToEnd = False, specialCharactersToAdd = 0):
     """Method to generate password string based on a password pattern 
     
     passwordPattern - array describing the sequence of words to be included in the password
@@ -21,6 +17,7 @@ def generatePass(passwordPattern, replaceWithNums = 0, appendNumbersToEnd = Fals
     """
     attempts = 0
     replacements = 0
+    appendedNumbersToEnd = False
 
     password = []
     previousFirstLetter = ""
@@ -40,7 +37,7 @@ def generatePass(passwordPattern, replaceWithNums = 0, appendNumbersToEnd = Fals
         previousFirstLetter = appendToPass[0].lower()
         password.append(appendToPass)
     
-    if(not appendNumbersToEnd):
+    if(not appendAllNumbersToEnd):
         while(replacements < replaceWithNums and attempts < len(password)*3):
             randIndex = random.randrange(len(password))
             wordBeforeReplacement = password[randIndex]
@@ -54,6 +51,9 @@ def generatePass(passwordPattern, replaceWithNums = 0, appendNumbersToEnd = Fals
         numsToAdd = replaceWithNums - replacements
         numberString = words.getRandomNumber(numsToAdd)
         password.append(numberString)
+        appendedNumbersToEnd = True
+    
+    password = words.processSpecialCharacters(password,specialCharactersToAdd, appendedNumbersToEnd)
 
     return ''.join(password)
 
