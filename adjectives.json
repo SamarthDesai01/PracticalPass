@@ -1,0 +1,248 @@
+{
+    "g": [
+        "good",
+        "great",
+        "global",
+        "general",
+        "green"
+    ],
+    "o": [
+        "other",
+        "own",
+        "old",
+        "online",
+        "only",
+        "open",
+        "original",
+        "overall"
+    ],
+    "m": [
+        "more",
+        "many",
+        "most",
+        "much",
+        "major",
+        "main",
+        "mobile",
+        "medical",
+        "multiple",
+        "modern",
+        "military",
+        "mental"
+    ],
+    "n": [
+        "new",
+        "next",
+        "natural",
+        "national",
+        "nice",
+        "necessary",
+        "normal",
+        "numerous",
+        "negative"
+    ],
+    "f": [
+        "first",
+        "few",
+        "free",
+        "full",
+        "financial",
+        "final",
+        "former",
+        "future",
+        "federal",
+        "further",
+        "favorite",
+        "fresh",
+        "fine",
+        "fast",
+        "foreign"
+    ],
+    "s": [
+        "such",
+        "same",
+        "small",
+        "social",
+        "several",
+        "sure",
+        "second",
+        "special",
+        "simple",
+        "short",
+        "strong",
+        "single",
+        "specific",
+        "similar",
+        "successful",
+        "significant",
+        "safe",
+        "serious",
+        "sexual",
+        "standard"
+    ],
+    "h": [
+        "high",
+        "hard",
+        "human",
+        "happy",
+        "healthy",
+        "huge",
+        "hot",
+        "heavy"
+    ],
+    "l": [
+        "last",
+        "large",
+        "little",
+        "long",
+        "local",
+        "least",
+        "low",
+        "late",
+        "less",
+        "likely",
+        "legal",
+        "light",
+        "live"
+    ],
+    "d": [
+        "different",
+        "due",
+        "difficult",
+        "digital",
+        "deep",
+        "daily",
+        "direct",
+        "dark"
+    ],
+    "i": [
+        "important",
+        "interesting",
+        "international",
+        "interested",
+        "individual",
+        "independent",
+        "initial"
+    ],
+    "b": [
+        "big",
+        "bad",
+        "beautiful",
+        "basic",
+        "black"
+    ],
+    "a": [
+        "able",
+        "available",
+        "american",
+        "additional",
+        "amazing",
+        "active",
+        "annual",
+        "appropriate",
+        "actual",
+        "aware",
+        "average",
+        "awesome",
+        "academic"
+    ],
+    "e": [
+        "easy",
+        "early",
+        "effective",
+        "economic",
+        "entire",
+        "enough",
+        "extra",
+        "excellent",
+        "essential",
+        "environmental",
+        "educational",
+        "expensive",
+        "exciting"
+    ],
+    "r": [
+        "real",
+        "right",
+        "recent",
+        "ready",
+        "regular",
+        "responsible",
+        "rich",
+        "relevant",
+        "red"
+    ],
+    "p": [
+        "public",
+        "possible",
+        "personal",
+        "past",
+        "political",
+        "particular",
+        "private",
+        "professional",
+        "perfect",
+        "popular",
+        "physical",
+        "positive",
+        "potential",
+        "previous",
+        "poor",
+        "powerful",
+        "present",
+        "primary",
+        "proper"
+    ],
+    "y": [
+        "young"
+    ],
+    "c": [
+        "current",
+        "common",
+        "certain",
+        "clear",
+        "close",
+        "complete",
+        "critical",
+        "creative",
+        "cheap",
+        "cool",
+        "corporate",
+        "commercial",
+        "complex",
+        "cultural",
+        "clean",
+        "cold",
+        "central"
+    ],
+    "t": [
+        "true",
+        "top",
+        "third",
+        "traditional",
+        "total",
+        "technical"
+    ],
+    "w": [
+        "whole",
+        "wrong",
+        "white",
+        "wide",
+        "wonderful",
+        "worth"
+    ],
+    "v": [
+        "various",
+        "video"
+    ],
+    "u": [
+        "unique",
+        "useful"
+    ],
+    "k": [
+        "key"
+    ],
+    "q": [
+        "quick"
+    ]
+}
