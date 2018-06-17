@@ -1,12 +1,11 @@
 import json, os, random
 import words
+from sentence import sentence
 
 os.chdir(os.getcwd())
 
-passwordPatterns = [['adj','alliterate-noun','verb','pluralnoun']]
-
 def getRandomPass():
-    return generatePass(random.choice(passwordPatterns), replaceWithNums = 1, appendAllNumbersToEnd = False, specialCharactersToAdd=1)
+    return generatePass(sentence.getSentence(), replaceWithNums = 1, appendAllNumbersToEnd = False, specialCharactersToAdd=1)
 
 def generatePass(passwordPattern, replaceWithNums = 0, appendAllNumbersToEnd = False, specialCharactersToAdd = 0):
     """Method to generate password string based on a password pattern 
