@@ -1,7 +1,5 @@
-import inflect 
-import json
-import os
-import random
+import inflect, json, os, random
+
 plural = inflect.engine()
 os.chdir(os.getcwd())
 

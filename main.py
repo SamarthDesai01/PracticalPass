@@ -1,9 +1,6 @@
-import inflect 
-import json
-import os
+import json, os, random
 import words
-import random
-plural = inflect.engine()
+
 os.chdir(os.getcwd())
 
 nouns = json.load(open("nouns.json"))
