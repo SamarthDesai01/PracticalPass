@@ -7,7 +7,7 @@ adjectives = json.load(open("adjectives.json"))
 verbs = json.load(open("verbs.json"))
 
 leetDefinitions = {'a':'4','A':'4','e':'3','E':'3','g':'6','G':'6','l':'1','L':'1','o':'0','O':'0','s':'5','S':'5','t':'7','T':'7'}
-specialCharacters = {'separators': [',', '.','-','-'], 'appender':['@','$','?','!']}
+specialCharacters = {'separators': [',', '.','-','-'], 'appenders':['@','$','?','!']}
 
 def getNoun(isPlural = False, alliterateChar = ''):
     """Get a random noun, can either specify what the noun should begin with or if it is plural
@@ -78,6 +78,17 @@ def getRandomNumber(length):
         numberString+=str(randNumber)
     return numberString
 
+def getRandomAppenders(length):
+    """Get a string of random special character appenders
+    length - length of returned string
+    """
+
+    appenderString = ''
+    for i in range(length):
+        randAppender = random.choice(specialCharacters['appenders'])
+        appenderString+=randAppender
+    return appenderString
+
 def processSpecialCharacters(password,specialCharactersToAdd,numbersAppendedToEnd = False):
     """Add a specified number of special characters to the current password
     password - list containing the current password
@@ -86,16 +97,32 @@ def processSpecialCharacters(password,specialCharactersToAdd,numbersAppendedToEn
                            used for creating more natural setences when inserting appenders
     """
     separatorIndex = 1
+    currentIndex = 0
+    charactersAdded = 0
+
     if(specialCharactersToAdd == 1):
         randomKey = random.choice(list(specialCharacters.keys()))
-        if(randomKey == 'separators'):
+        if(randomKey == 'separators'): #Put separators in between words of the password
             password.insert(separatorIndex, random.choice(specialCharacters[randomKey]))
-        elif(numbersAppendedToEnd):
-            if(password[-1].isdigit()):
+        elif(numbersAppendedToEnd): #Check if numbers might be at the end of the password
+            if(password[-1].isdigit()): #Check if the last element is a number, if so put our special character right before it 
                 password.insert(len(password) - 1, random.choice(specialCharacters[randomKey]))
-        else:
-            password.append(random.choice(specialCharacters[randomKey]))
-    else:
-        pass
+        else: #Randomly selected an appender, apply to the end
+            password.append(random.choice(specialCharacters[randomKey])) 
+    elif(specialCharactersToAdd > 1): #Build more natural passwords if we need more than 1 special character
+        randomSeparator = random.choice(specialCharacters['separators'])
+        separatedPassword = [] #Rebuild the password with separators included where possible
+        while(currentIndex < len(password) - 1 and charactersAdded < specialCharactersToAdd): #Add the separators where possible
+            currentWordinPass = password[currentIndex]
+            separatedPassword.append(currentWordinPass)
+            separatedPassword.append(randomSeparator)
+            charactersAdded+=1
+            currentIndex+=1
+        for j in range(len(password) - currentIndex): #Add the remaining parts of the password that weren't covered in the previous loop 
+            currentWordinPass = password[j + currentIndex]
+            separatedPassword.append(currentWordinPass)
+        if(specialCharactersToAdd != charactersAdded):
+            separatedPassword.append(getRandomAppenders(specialCharactersToAdd - charactersAdded))
+        return separatedPassword
         #TODO: Implement extended special character behavior
     return password
