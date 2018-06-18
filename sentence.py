@@ -2,7 +2,7 @@ import random
 class sentence:
 
     sentenceTypes = [
-        ['adj','alliterate-noun','verb','pluralnoun'],
+        ['adj','alliterate-pluralnoun','pluralverb','pluralnoun'],
     ]
 
     @classmethod

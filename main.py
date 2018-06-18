@@ -29,9 +29,17 @@ def generatePass(passwordPattern, replaceWithNums = 0, appendAllNumbersToEnd = F
         elif(currentWordType == 'pluralnoun'):
             appendToPass = words.getNoun(isPlural = True).capitalize()
         elif(currentWordType == 'alliterate-noun'):
+            appendToPass = words.getNoun(False, previousFirstLetter).capitalize()
+        elif(currentWordType == 'alliterate-pluralnoun'):
             appendToPass = words.getNoun(True, previousFirstLetter).capitalize()
         elif(currentWordType == 'verb'):
             appendToPass = words.getVerb().capitalize()
+        elif(currentWordType == 'pluralverb'):
+            appendToPass = words.getVerb(True).capitalize()
+        elif(currentWordType == 'alliterate-verb'):
+            appendToPass = words.getVerb(False, previousFirstLetter).capitalize()
+        elif(currentWordType == 'alliterate-pluralverb'):
+            appendToPass = words.getVerb(True, previousFirstLetter)
         
         previousFirstLetter = appendToPass[0].lower()
         password.append(appendToPass)

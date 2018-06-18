@@ -1,11 +1,11 @@
 import inflect, json, os, random
 
 plural = inflect.engine()
-os.chdir(os.getcwd())
 
 nouns = json.load(open("nouns.json"))
 adjectives = json.load(open("adjectives.json"))
 verbs = json.load(open("verbs.json"))
+
 leetDefinitions = {'a':'4','A':'4','e':'3','E':'3','g':'6','G':'6','l':'1','L':'1','o':'0','O':'0','s':'5','S':'5','t':'7','T':'7'}
 specialCharacters = {'separators': [',', '.','-','-'], 'appender':['@','$','?','!']}
 
@@ -36,7 +36,6 @@ def getVerb(isPlural= False, alliterateChar = ''):
         return plural.plural_verb(randomVerb)
     else:
         return randomVerb
-
 
 
 def getRandomWord(wordList, alliterateChar = ''):
