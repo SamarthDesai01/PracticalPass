@@ -39,7 +39,7 @@ def generatePass(passwordPattern, numsToInclude = 0, appendAllNumbersToEnd = Fal
         elif(currentWordType == 'alliterate-verb'):
             appendToPass = words.getVerb(False, previousFirstLetter).capitalize()
         elif(currentWordType == 'alliterate-pluralverb'):
-            appendToPass = words.getVerb(True, previousFirstLetter)
+            appendToPass = words.getVerb(True, previousFirstLetter).capitalize()
         
         previousFirstLetter = appendToPass[0].lower()
         password.append(appendToPass)
